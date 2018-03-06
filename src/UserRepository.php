@@ -28,6 +28,17 @@ use function Opis\Colibri\Functions\{
 
 class UserRepository implements IUserRepository
 {
+    /** @var string */
+    protected $entity;
+
+    public function __construct(string $entity = null)
+    {
+        if ($entity === null) {
+            $entity = User::class;
+        }
+        $this->entity = $entity;
+    }
+
     /**
      * Create user
      * @return IUser|User
@@ -35,7 +46,7 @@ class UserRepository implements IUserRepository
     public function create(): IUser
     {
         /** @var User $user */
-        $user = entityManager()->create(User::class);
+        $user = entityManager()->create($this->entity);
         return $user;
     }
 
@@ -45,7 +56,7 @@ class UserRepository implements IUserRepository
     public function getById(string $id): ?IUser
     {
         /** @var User|null $user */
-        $user = entity(User::class)->find($id);
+        $user = entity($this->entity)->find($id);
         return $user;
     }
 
@@ -80,7 +91,7 @@ class UserRepository implements IUserRepository
      */
     public function deleteById(string $id): bool
     {
-        return (bool) entity(User::class)
+        return (bool) entity($this->entity)
             ->where('id')->is($id)
             ->delete();
     }
@@ -90,7 +101,7 @@ class UserRepository implements IUserRepository
      */
     public function deleteMultipleById(array $ids): int
     {
-        return entity(User::class)
+        return entity($this->entity)
             ->where('id')->in($ids)
             ->delete();
     }
