@@ -20,7 +20,6 @@ namespace OpisColibri\UsersSQLImpl;
 use Opis\Colibri\Collector as AbstractCollector;
 use Opis\Colibri\ItemCollectors\ContractCollector;
 use OpisColibri\Users\IUserRepository;
-use OpisColibri\Users\IUserSession;
 use OpisColibri\Users\Security\IPasswordRepository;
 
 class Collector extends AbstractCollector
@@ -30,7 +29,6 @@ class Collector extends AbstractCollector
      */
     public function contracts(ContractCollector $contract)
     {
-        $contract->singleton(IUserSession::class, UserSession::class);
         $contract->singleton(IUserRepository::class, UserRepository::class);
         $contract->singleton(IPasswordRepository::class, PasswordRepository::class);
     }
