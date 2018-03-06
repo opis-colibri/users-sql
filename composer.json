@@ -1,0 +1,43 @@
+{
+    "name": "opis-colibri/users-sql-impl",
+    "type": "opis-colibri-module",
+    "description": "SQL-based implementation for opis-colibri/users module",
+    "keywords": ["opis", "colibri", "module", "users", "sql"],
+    "homepage": "http://opis.io",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Marius Sarca",
+            "email": "marius.sarca@gmail.com"
+        }
+    ],
+    "require": {
+        "opis-colibri/users": "1.0.x-dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpisColibri\\UsersSQLImpl\\": "src/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "extra": {
+        "module": {
+            "title": "User SQL",
+            "collector": {
+                "file": "src/Collector.php",
+                "class": "OpisColibri\\UsersSQLImpl\\Collector"
+            },
+            "installer": {
+                "file": "src/Installer.php",
+                "class": "OpisColibri\\UsersSQLImpl\\Installer"
+            }
+        },
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
