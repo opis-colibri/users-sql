@@ -46,7 +46,7 @@ class Password extends Entity implements IPassword, IEntityMapper
      */
     public function user(): IUser
     {
-        return $this->orm()->getRelation('user');
+        return $this->orm()->getRelated('user');
     }
 
     /**
@@ -63,7 +63,7 @@ class Password extends Entity implements IPassword, IEntityMapper
      */
     public function setUser(IUser $user): IPassword
     {
-        $this->orm()->addRelatedEntity('user', $user);
+        $this->orm()->setRelated('user', $user);
         return $this;
     }
 
