@@ -15,7 +15,7 @@
  * limitations under the License.
  * ============================================================================ */
 
-namespace OpisColibri\UsersSQLImpl;
+namespace OpisColibri\UsersSQL;
 
 use Opis\Colibri\Collector as AbstractCollector;
 use Opis\Colibri\ItemCollectors\ContractCollector;

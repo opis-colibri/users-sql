@@ -1,5 +1,5 @@
 {
-    "name": "opis-colibri/users-sql-impl",
+    "name": "opis-colibri/users-sql",
     "type": "opis-colibri-module",
     "description": "SQL-based implementation for opis-colibri/users module",
     "keywords": ["opis", "colibri", "module", "users", "sql"],
@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "OpisColibri\\UsersSQLImpl\\": "src/"
+            "OpisColibri\\UsersSQL\\": "src/"
         }
     },
     "config": {
@@ -29,11 +29,11 @@
             "title": "User SQL",
             "collector": {
                 "file": "src/Collector.php",
-                "class": "OpisColibri\\UsersSQLImpl\\Collector"
+                "class": "OpisColibri\\UsersSQL\\Collector"
             },
             "installer": {
                 "file": "src/Installer.php",
-                "class": "OpisColibri\\UsersSQLImpl\\Installer"
+                "class": "OpisColibri\\UsersSQL\\Installer"
             }
         },
         "branch-alias": {

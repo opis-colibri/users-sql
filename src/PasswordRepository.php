@@ -15,7 +15,7 @@
  * limitations under the License.
  * ============================================================================ */
 
-namespace OpisColibri\UsersSQLImpl;
+namespace OpisColibri\UsersSQL;
 
 use OpisColibri\Users\{
     IUser,

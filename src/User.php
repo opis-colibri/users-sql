@@ -15,7 +15,7 @@
  * limitations under the License.
  * ============================================================================ */
 
-namespace OpisColibri\UsersSQLImpl;
+namespace OpisColibri\UsersSQL;
 
 use DateTime;
 use function Opis\Colibri\Functions\{

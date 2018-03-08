@@ -15,7 +15,7 @@
  * limitations under the License.
  * ============================================================================ */
 
-namespace OpisColibri\UsersSQLImpl;
+namespace OpisColibri\UsersSQL;
 
 use function Opis\Colibri\Functions\schema;
 use Opis\Colibri\Installer as AbstractInstaller;
