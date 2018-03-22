@@ -52,7 +52,7 @@ class Installer extends AbstractInstaller
     /**
      * @throws \Exception
      */
-    public function enable()
+    public function uninstall()
     {
         $schema = schema();
         $schema->drop('passwords');
