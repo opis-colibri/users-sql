@@ -53,6 +53,19 @@ class UserRepository implements IUserRepository
     /**
      * @inheritDoc
      */
+    public function getAll(int $start = 0, int $count = 25, array $filters = [])
+    {
+        return entity($this->entity)
+            ->filter($filters)
+            ->limit($count)
+            ->offset($start)
+            ->all();
+    }
+
+
+    /**
+     * @inheritDoc
+     */
     public function getById(string $id): ?IUser
     {
         /** @var User|null $user */
