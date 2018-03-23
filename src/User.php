@@ -19,7 +19,7 @@ namespace OpisColibri\UsersSQL;
 
 use DateTime;
 use function Opis\Colibri\Functions\{
-    config, make, uuid4
+    make, uuid4
 };
 use Opis\ORM\{
     Entity,

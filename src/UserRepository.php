@@ -61,6 +61,16 @@ class UserRepository implements IUserRepository
     }
 
     /**
+     * @inheritDoc
+     */
+    public function getByEmail(string $email): ?IUser
+    {
+        /** @var User|null $user */
+        $user = entity($this->entity)->where('email')->is($email)->get();
+        return $user;
+    }
+
+    /**
      * Save modified user
      *
      * @param IUser|User $user
