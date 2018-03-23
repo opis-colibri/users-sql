@@ -53,7 +53,7 @@ class UserRepository implements IUserRepository
     /**
      * @inheritDoc
      */
-    public function getAll(int $start = 0, int $count = 25, array $filters = [])
+    public function getAll(int $start = 0, int $count = 25, array $filters = []): iterable
     {
         return entity($this->entity)
             ->filter($filters)
