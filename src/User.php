@@ -31,7 +31,9 @@ use OpisColibri\Permissions\{
     IPermission,
     IRoleRepository
 };
-use OpisColibri\Users\IUser;
+use OpisColibri\Users\{
+    IUser, IUserSession
+};
 
 class User extends Entity implements IUser, IEntityMapper
 {
@@ -46,9 +48,60 @@ class User extends Entity implements IUser, IEntityMapper
     /**
      * @inheritDoc
      */
+    public function name(): string
+    {
+        return $this->orm()->getColumn('name');
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setName(string $name): IUser
+    {
+        $this->orm()->setColumn('name', $name);
+        return $this;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function email(): string
+    {
+        return $this->orm()->getColumn('email');
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setEmail(string $email): IUser
+    {
+        $this->orm()->setColumn('email', $email);
+        return $this;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function avatar(): ?string
+    {
+        return $this->orm()->getColumn('avatar');
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setAvatar(string $avatar = null): IUser
+    {
+        $this->orm()->setColumn('avatar', $avatar);
+        return $this;
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function isAdmin(): bool
     {
-        return $this->id() === config()->read('user.admin');
+        return $this->id() === make(IUserSession::class)->getAdminId();
     }
 
     /**
