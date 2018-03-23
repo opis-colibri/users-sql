@@ -32,6 +32,9 @@ class Installer extends AbstractInstaller
 
         $schema->create('users', function (CreateTable $table) {
             $table->fixed('id', 32)->notNull()->primary();
+            $table->string('name')->notNull();
+            $table->string('email')->notNull()->unique();
+            $table->string('avatar');
             $table->dateTime('registration_date')->notNull();
             $table->dateTime('last_login');
             $table->boolean('is_active')->notNull()->defaultValue(false);
