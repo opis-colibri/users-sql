@@ -18,10 +18,7 @@
 namespace OpisColibri\UsersSQL;
 
 use Opis\ORM\{
-    Entity,
-    IEntityMapper,
-    Core\DataMapper,
-    Core\EntityMapper
+    Entity, IDataMapper, IEntityMapper, IMappableEntity
 };
 use OpisColibri\Users\{
     IUser,
@@ -30,7 +27,7 @@ use OpisColibri\Users\{
 };
 use function Opis\Colibri\Functions\make;
 
-class Password extends Entity implements IPassword, IEntityMapper
+class Password extends Entity implements IPassword, IMappableEntity
 {
 
     /**
@@ -80,11 +77,11 @@ class Password extends Entity implements IPassword, IEntityMapper
     /**
      * @inheritDoc
      */
-    public static function mapEntity(EntityMapper $mapper)
+    public static function mapEntity(IEntityMapper $mapper)
     {
         $mapper->primaryKey('user_id');
 
-        $mapper->primaryKeyGenerator(function (DataMapper $data) {
+        $mapper->primaryKeyGenerator(function (IDataMapper $data) {
             return $data->getColumn('user_id');
         });
 

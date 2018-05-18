@@ -22,9 +22,7 @@ use function Opis\Colibri\Functions\{
     make, uuid4
 };
 use Opis\ORM\{
-    Entity,
-    IEntityMapper,
-    Core\EntityMapper
+    Entity, IEntityMapper, IMappableEntity
 };
 use OpisColibri\Permissions\{
     IRole,
@@ -35,7 +33,7 @@ use OpisColibri\Users\{
     IUser, IUserSession
 };
 
-class User extends Entity implements IUser, IEntityMapper
+class User extends Entity implements IUser, IMappableEntity
 {
     /**
      * @inheritDoc
@@ -233,7 +231,7 @@ class User extends Entity implements IUser, IEntityMapper
     /**
      * @inheritDoc
      */
-    public static function mapEntity(EntityMapper $mapper)
+    public static function mapEntity(IEntityMapper $mapper)
     {
         $mapper->cast([
             'is_active' => 'boolean',
