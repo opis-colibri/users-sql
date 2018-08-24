@@ -15,7 +15,7 @@
  * limitations under the License.
  * ============================================================================ */
 
-namespace OpisColibri\UsersSQL;
+namespace Opis\Colibri\Modules\UsersSQL;
 
 use DateTime;
 use function Opis\Colibri\Functions\{
@@ -24,12 +24,12 @@ use function Opis\Colibri\Functions\{
 use Opis\ORM\{
     Entity, IEntityMapper, IMappableEntity
 };
-use OpisColibri\Permissions\{
+use Opis\Colibri\Modules\Permissions\{
     IRole,
     IPermission,
     IRoleRepository
 };
-use OpisColibri\Users\{
+use Opis\Colibri\Modules\Users\{
     IUser, IUserSession
 };
 
@@ -237,10 +237,10 @@ class User extends Entity implements IUser, IMappableEntity
             'is_active' => 'boolean',
             'registration_date' => 'date',
             'last_login' => '?date',
-            'roles' => 'json-assoc'
+            'roles' => 'json-assoc',
         ]);
 
-        $mapper->setter('roles', function(iterable $roles) {
+        $mapper->setter('roles', function (iterable $roles) {
             $list = [];
             foreach ($roles as $role) {
                 if ($role instanceof IRole) {

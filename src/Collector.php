@@ -15,12 +15,11 @@
  * limitations under the License.
  * ============================================================================ */
 
-namespace OpisColibri\UsersSQL;
+namespace Opis\Colibri\Modules\UsersSQL;
 
 use Opis\Colibri\Collector as AbstractCollector;
 use Opis\Colibri\ItemCollectors\ContractCollector;
-use OpisColibri\Users\IUserRepository;
-use OpisColibri\Users\Security\IPasswordRepository;
+use Opis\Colibri\Modules\Users\{IUserRepository, Security\IPasswordRepository};
 
 class Collector extends AbstractCollector
 {

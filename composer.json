@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "OpisColibri\\UsersSQL\\": "src/"
+            "Opis\\Colibri\\Modules\\UsersSQL\\": "src/"
         }
     },
     "config": {
@@ -27,14 +27,8 @@
     "extra": {
         "module": {
             "title": "User SQL",
-            "collector": {
-                "file": "src/Collector.php",
-                "class": "OpisColibri\\UsersSQL\\Collector"
-            },
-            "installer": {
-                "file": "src/Installer.php",
-                "class": "OpisColibri\\UsersSQL\\Installer"
-            }
+            "collector": "Opis\\Colibri\\Modules\\UsersSQL\\Collector",
+            "installer": "Opis\\Colibri\\Modules\\UsersSQL\\Installer"
         },
         "branch-alias": {
             "dev-master": "1.0-dev"

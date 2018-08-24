@@ -15,9 +15,9 @@
  * limitations under the License.
  * ============================================================================ */
 
-namespace OpisColibri\UsersSQL;
+namespace Opis\Colibri\Modules\UsersSQL;
 
-use OpisColibri\Users\{
+use Opis\Colibri\Modules\Users\{
     IUser,
     Security\IPassword,
     Security\IPasswordRepository
@@ -96,7 +96,7 @@ class PasswordRepository implements IPasswordRepository
      */
     public function deleteById(string $id): bool
     {
-        return (bool) entity(Password::class)
+        return (bool)entity(Password::class)
             ->where('user_id')->is($id)
             ->delete();
     }

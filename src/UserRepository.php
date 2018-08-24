@@ -15,10 +15,10 @@
  * limitations under the License.
  * ============================================================================ */
 
-namespace OpisColibri\UsersSQL;
+namespace Opis\Colibri\Modules\UsersSQL;
 
 use Opis\ORM\Entity;
-use OpisColibri\Users\{
+use Opis\Colibri\Modules\Users\{
     IUser,
     IUserRepository
 };
@@ -95,7 +95,7 @@ class UserRepository implements IUserRepository
             return false;
         }
 
-       return entityManager()->save($user);
+        return entityManager()->save($user);
     }
 
     /**
@@ -114,7 +114,7 @@ class UserRepository implements IUserRepository
      */
     public function deleteById(string $id): bool
     {
-        return (bool) entity($this->entity)
+        return (bool)entity($this->entity)
             ->where('id')->is($id)
             ->delete();
     }

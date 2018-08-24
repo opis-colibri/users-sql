@@ -15,12 +15,12 @@
  * limitations under the License.
  * ============================================================================ */
 
-namespace OpisColibri\UsersSQL;
+namespace Opis\Colibri\Modules\UsersSQL;
 
 use Opis\ORM\{
     Entity, IDataMapper, IEntityMapper, IMappableEntity
 };
-use OpisColibri\Users\{
+use Opis\Colibri\Modules\Users\{
     IUser,
     Security\IPassword,
     Security\IPasswordHandler
@@ -85,7 +85,7 @@ class Password extends Entity implements IPassword, IMappableEntity
             return $data->getColumn('user_id');
         });
 
-        $mapper->setter('value', function(string $value){
+        $mapper->setter('value', function (string $value) {
             return make(IPasswordHandler::class)->hash($value);
         });
 
