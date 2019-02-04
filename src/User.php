@@ -97,9 +97,9 @@ class User extends Entity implements IUser, IMappableEntity
     /**
      * @inheritDoc
      */
-    public function isAdmin(): bool
+    public function isOwner(): bool
     {
-        return $this->id() === make(IUserSession::class)->getAdminId();
+        return $this->id() === make(IUserSession::class)->getOwnerId();
     }
 
     /**
