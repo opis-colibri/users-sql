@@ -9,10 +9,14 @@
         {
             "name": "Marius Sarca",
             "email": "marius.sarca@gmail.com"
+        },
+        {
+            "name": "Sorin Sarca",
+            "email": "sarca_sorin@hotmail.com"
         }
     ],
     "require": {
-        "opis-colibri/users": "1.0.x-dev"
+        "opis-colibri/users": "^1.0"
     },
     "autoload": {
         "psr-4": {
